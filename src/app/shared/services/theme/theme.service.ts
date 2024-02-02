@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class ThemeService implements OnInit {
-  darkMode: boolean = false
+  darkMode: boolean = true
 
   darkMode$ = new BehaviorSubject<boolean>(this.darkMode)
   constructor(@Inject(DOCUMENT) private doc:Document) {

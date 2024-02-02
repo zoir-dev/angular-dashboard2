@@ -1,6 +1,8 @@
+@import "../node_modules/ng-zorro-antd/ng-zorro-antd.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 * {
   @apply box-border p-0 m-0 !duration-500 transition-colors
