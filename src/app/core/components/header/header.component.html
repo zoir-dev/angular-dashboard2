@@ -1,0 +1,36 @@
+<header
+  class="flex w-full justify-between items-center px-5 py-3 dark:bg-slate-800 shadow-md"
+>
+  <img src="../../../../assets/logo.svg" alt="" class="w-36" />
+  <div class="flex gap-5 items-center">
+    <div class="checkbox-wrapper-54">
+      <label class="switch">
+        <input
+          type="checkbox"
+          [checked]="darkMode"
+          (change)="changeMode($event)"
+        />
+        <span class="slider"></span>
+      </label>
+    </div>
+    <nz-avatar
+      nzText="{{ userInfo.name.split(' ')[0].slice(0, 1).toUpperCase() }}{{
+        userInfo.name.split(' ')[1]?.slice(0, 1)
+      }}"
+      [nzSrc]="userInfo.img"
+      [nzSize]="40"
+      *ngIf="userInfo.name"
+      (click)="logOut()"
+      class="cursor-pointer bg-primary"
+      [nzTooltipTitle]="userInfo.name"
+      nzTooltipPlacement="bottomRight"
+      nz-tooltip
+    ></nz-avatar>
+    <a [routerLink]="['/login']" *ngIf="!userInfo.name && !forAuth">
+      <button nz-button nzType="link" class="pr-0">Login</button>
+    </a>
+    <a [routerLink]="['/']" *ngIf="!userInfo.name && forAuth">
+      <button nz-button nzType="link" class="pr-0">Home</button>
+    </a>
+  </div>
+</header>

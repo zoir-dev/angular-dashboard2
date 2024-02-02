@@ -1,0 +1,104 @@
+<div class="w-full h-[90vh] flex justify-center items-center">
+  <form
+    nz-form
+    [nzLayout]="'inline'"
+    (ngSubmit)="submitForm()"
+    class="max-w-[300px] w-full flex justify-center flex-col gap-5 rounded-lg shadow-lg p-5"
+    [formGroup]="validateForm"
+  >
+    <h2 class="text-3xl text-center dark:text-gray-200">{{ type }}</h2>
+    <nz-form-item *ngIf="sign">
+      <nz-form-control [nzErrorTip]="getError('userName')">
+        <nz-input-group
+          nzPrefixIcon="user"
+          class="dark:!bg-slate-700 !m-0 text-primary dark:border-gray-300 p-2 !rounded-md"
+        >
+          <input
+            formControlName="userName"
+            nz-input
+            placeholder="Username"
+            class="!bg-transparent dark:text-gray-300 text-[16px] md:text-sm capitalize"
+            [disabled]="true"
+          />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control [nzErrorTip]="getError('email')">
+        <nz-input-group
+          nzPrefixIcon="mail"
+          class="dark:!bg-slate-700 !m-0 text-primary dark:border-gray-300 p-2 !rounded-md"
+        >
+          <input
+            formControlName="email"
+            nz-input
+            placeholder="Email"
+            class="!bg-transparent dark:text-gray-300 text-[16px] md:text-sm"
+            [disabled]="(loading$ | async) || false"
+          />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control [nzErrorTip]="getError('password')">
+        <nz-input-group
+          nzPrefixIcon="lock"
+          class="dark:!bg-slate-700 !m-0 text-primary dark:border-gray-300 p-2 !rounded-md"
+        >
+          <input
+            formControlName="password"
+            nz-input
+            type="password"
+            placeholder="Password"
+            class="!bg-transparent dark:text-gray-300 text-[16px] md:text-sm"
+            [disabled]="(loading$ | async) || false"
+          />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item class="flex flex-col">
+      <nz-form-control>
+        <button
+          nz-button
+          nzType="primary"
+          class="rounded-md bg-primary flex items-center justify-center gap-1"
+          nzBlock="full"
+          type="submit"
+          [nzLoading]="loading$ | async"
+        >
+          Login
+        </button>
+      </nz-form-control>
+      <nz-divider
+        nzText="Or"
+        class="dark:text-gray-300 !border-gray-400"
+      ></nz-divider>
+      <div class="relative">
+        <button
+          nz-button
+          nzType="default"
+          class="rounded-md !bg-transparent dark:text-gray-200 border-primary text-black pr-10 hover:!text-primary"
+          nzBlock="full"
+          type="button"
+          [disabled]="loading$ | async"
+          (click)="withGoogle()"
+        >
+          Continue with Google
+        </button>
+        <!-- <img
+          src="../../../../assets/google-color-icon.svg"
+          alt=""
+          class="w-4 absolute top-2 right-12"
+        /> -->
+      </div>
+    </nz-form-item>
+    <p *ngIf="sign" class="dark:text-gray-200">
+      Or
+      <a [routerLink]="['/login']" class="text-primary">login now!</a>
+    </p>
+    <p *ngIf="!sign" class="dark:text-gray-200">
+      Or
+      <a [routerLink]="['/sign']" class="text-primary">register now!</a>
+    </p>
+  </form>
+</div>

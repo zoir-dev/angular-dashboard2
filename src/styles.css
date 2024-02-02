@@ -1,1 +1,52 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply box-border p-0 m-0 !duration-500 transition-colors
+}
+
+form nz-form-item{
+    @apply !m-0
+}
+
+form .ant-form-item-explain-error{
+  @apply !text-xs pt-1
+}
+
+form nz-form-item svg{
+  @apply  pr-1 box-content
+}
+
+button{
+  @apply active:scale-[97%] !transition-all
+}
+
+.ant-message-notice *{
+  /* @apply !bg-slate-800 */
+}
+.dark .ant-message-notice .ant-message-notice-content{
+  @apply !bg-slate-700
+}
+.ant-message-notice svg{
+  @apply text-green-500
+}
+.ant-message-notice-content{
+  @apply dark:!bg-slate-700 dark:!text-white
+}
+
+.ant-spin-nested-loading > div > .ant-spin{
+  @apply max-h-full
+}
+
+.ant-spin-container::after{
+  @apply bg-transparent backdrop-blur-md z-0
+}
+
+.ant-spin-blur, .ant-spin-blur::after{
+  @apply opacity-100
+}
+
+form nz-form-item button svg{
+  @apply pr-0
+}
