@@ -1,4 +1,4 @@
-@import "../node_modules/ng-zorro-antd/ng-zorro-antd.css";
+@import "../node_modules/ng-zorro-antd/ng-zorro-antd.min.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -24,9 +24,6 @@ button{
   @apply active:scale-[97%] !transition-all
 }
 
-.ant-message-notice *{
-  /* @apply !bg-slate-800 */
-}
 .dark .ant-message-notice .ant-message-notice-content{
   @apply !bg-slate-700
 }

@@ -12,8 +12,7 @@ import { NzSpinModule } from 'ng-zorro-antd/spin';
   selector: 'app-root',
   standalone: true,
   imports: [ RouterOutlet,AppModule,NgIf,NzSpinModule],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnDestroy,OnInit {
   showLoadingIndicator = true;

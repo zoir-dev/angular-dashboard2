@@ -55,7 +55,6 @@ export class HeaderComponent implements OnDestroy {
 
   changeMode(val: any) {
     this.theme.changeMode(val.target.checked)
-    console.log(this.userInfo.name.split(' '))
   }
   ngOnDestroy(): void {
     this.unsubscribe$.next(null)
