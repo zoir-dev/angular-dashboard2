@@ -18,7 +18,6 @@
             nz-input
             placeholder="Username"
             class="!bg-transparent dark:text-gray-300 text-[16px] md:text-sm capitalize"
-            [disabled]="true"
           />
         </nz-input-group>
       </nz-form-control>
@@ -34,7 +33,6 @@
             nz-input
             placeholder="Email"
             class="!bg-transparent dark:text-gray-300 text-[16px] md:text-sm"
-            [disabled]="(loading$ | async) || false"
           />
         </nz-input-group>
       </nz-form-control>
@@ -51,7 +49,6 @@
             type="password"
             placeholder="Password"
             class="!bg-transparent dark:text-gray-300 text-[16px] md:text-sm"
-            [disabled]="(loading$ | async) || false"
           />
         </nz-input-group>
       </nz-form-control>

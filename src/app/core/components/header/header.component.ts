@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { UserInfo } from '../../../shared/types/userInfo';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+import { capitalizeLetter, capitalizeWord } from '../../../shared/functions/capitalize';
 
 
 @Component({
@@ -26,11 +27,19 @@ export class HeaderComponent implements OnDestroy {
   darkMode: boolean = false;
   userInfo!:UserInfo
 
+
   unsubscribe$=new Subject()
 
   constructor(private theme: ThemeService,private authService:AuthService,private auth:Auth,private msg:NzMessageService) {
     this.theme.darkMode$.pipe(takeUntil(this.unsubscribe$)).subscribe(val => this.darkMode = val)
     this.authService.userInfo$.pipe(takeUntil(this.unsubscribe$)).subscribe((val:UserInfo)=>this.userInfo=val)
+
+  }
+  avatarText(){
+    return capitalizeLetter(this.userInfo.name)
+  }
+  tooltipText(){
+    return capitalizeWord(this.userInfo.name)
   }
 
   async logOut(){
@@ -46,6 +55,7 @@ export class HeaderComponent implements OnDestroy {
 
   changeMode(val: any) {
     this.theme.changeMode(val.target.checked)
+    console.log(this.userInfo.name.split(' '))
   }
   ngOnDestroy(): void {
     this.unsubscribe$.next(null)

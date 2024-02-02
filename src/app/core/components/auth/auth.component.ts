@@ -7,10 +7,11 @@ import {NzFormModule} from 'ng-zorro-antd/form'
 import { NzInputModule} from 'ng-zorro-antd/input'
 import { NzDividerModule} from 'ng-zorro-antd/divider'
 import { NzIconModule } from 'ng-zorro-antd/icon';
-import { Auth, GoogleAuthProvider, User, createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signInWithPopup, updateCurrentUser, updateProfile, user } from '@angular/fire/auth';
+import { Auth, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, updateProfile } from '@angular/fire/auth';
 import { BehaviorSubject } from 'rxjs';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { AuthService } from '../../../shared/services/auth/auth.service';
+import { capitalizeWord } from '../../../shared/functions/capitalize';
 
 @Component({
   selector: 'app-auth',
@@ -43,7 +44,7 @@ export class AuthComponent {
           this.loading$.next(true)
           await createUserWithEmailAndPassword(this.auth,this.validateForm.value.email||'',this.validateForm.value.password||'')
           .then(d=>{
-            updateProfile(d.user,{displayName:this.validateForm.value.userName})
+            updateProfile(d.user,{displayName:capitalizeWord(this.validateForm.value.userName)})
             .then(()=>this.authService.userInfo$.next({name:d.user.displayName,email:d.user.email,img:''}))})
             this.msg.success('Successfully authed')
             this.router.navigate([''])
