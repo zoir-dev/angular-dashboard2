@@ -1,0 +1,11 @@
+<img
+  [src]="src"
+  [alt]="alt"
+  loading="lazy"
+  (load)="loading = false"
+  class="object-contain duration-1000 ease-in-out relative {{
+    loading
+      ? 'scale-110 blur-2xl grayscale duration-1000'
+      : 'scale-100 blur-0 grayscale-0 duration-1000'
+  }}"
+/>

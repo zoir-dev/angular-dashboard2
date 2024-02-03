@@ -9,6 +9,7 @@ export class AuthService  {
 
   token$ = new BehaviorSubject<string>('')
   userInfo$=new BehaviorSubject<any>({})
+  loading$=new BehaviorSubject<boolean>(false)
   isBrowser:boolean=false
   constructor( @Inject(PLATFORM_ID) platformId: Object) {
     this.isBrowser = isPlatformBrowser(platformId)

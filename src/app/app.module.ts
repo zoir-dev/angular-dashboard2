@@ -6,8 +6,6 @@ import { provideFirebaseApp } from '@angular/fire/app';
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
-
-
 @NgModule({
   declarations: [],
   imports: [

@@ -1,0 +1,16 @@
+<div class="relative aspect-square flex justify-center items-center w-5 h-5">
+  <span
+    class="animate-ping absolute inline-flex h-full w-full rounded-full {{
+      color === 'red' ? 'bg-red-500' : 'bg-primary'
+    }} opacity-75"
+    *ngIf="animating"
+  ></span>
+  <span
+    nz-icon
+    [nzType]="type"
+    [nzTheme]="theme"
+    class="cursor-pointer {{
+      color === 'red' ? 'text-red-500' : 'text-primary'
+    }} text-xl flex relative"
+  ></span>
+</div>

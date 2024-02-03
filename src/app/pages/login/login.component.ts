@@ -7,7 +7,6 @@ import { AuthLayout } from '../../layouts/auth/auth.component';
   standalone: true,
   imports: [AuthComponent,AuthLayout],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
 })
 export class LoginComponent {
 

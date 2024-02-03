@@ -16,7 +16,6 @@ import { NzSpinModule } from 'ng-zorro-antd/spin';
 })
 export class AppComponent implements OnDestroy,OnInit {
   showLoadingIndicator = true;
-
   finish$=new Subject()
 
 
@@ -41,21 +40,18 @@ export class AppComponent implements OnDestroy,OnInit {
   }
 
   ngOnInit(): void {
+    this.authService.loading$.next(true)
       this.auth.onAuthStateChanged(val=>{
         if(val!=null){
         this.authService.userInfo$.next({name:val?.displayName,email:val?.email,img:val?.photoURL})
-      }})
+      }
+      this.authService.loading$.next(false)
+    })
       if(isPlatformBrowser(this.platformId)){
         this.theme.changeMode(JSON.parse(localStorage.getItem('theme')||''))
       }
-      this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd ) {
-        // Reload the page when navigation ends (i.e., when the user enters the page)
-        // window.location.reload();
-      }
-    });
-
   }
+
   ngOnDestroy(): void {
       this.finish$.next(null)
       this.finish$.unsubscribe()

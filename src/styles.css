@@ -20,6 +20,13 @@ form nz-form-item svg{
   @apply  pr-1 box-content
 }
 
+.nz_input_group{
+  @apply dark:!bg-slate-700 !m-0 text-primary  p-2 !rounded-md
+}
+.nz_input{
+  @apply !bg-transparent dark:text-white text-sm sm:text-[15px]
+}
+
 button{
   @apply active:scale-[97%] !transition-all
 }
@@ -27,12 +34,14 @@ button{
 .dark .ant-message-notice .ant-message-notice-content{
   @apply !bg-slate-700
 }
-.ant-message-notice svg{
-  @apply text-green-500
-}
 .ant-message-notice-content{
   @apply dark:!bg-slate-700 dark:!text-white
 }
+.ant-message-custom-content{
+  @apply flex items-center
+}
+
+
 
 .ant-spin-nested-loading > div > .ant-spin{
   @apply max-h-full
@@ -40,6 +49,9 @@ button{
 
 .ant-spin-container::after{
   @apply bg-transparent backdrop-blur-md z-0
+}
+.blur_sm .ant-spin-container::after{
+  @apply backdrop-blur-sm
 }
 
 .ant-spin-blur, .ant-spin-blur::after{

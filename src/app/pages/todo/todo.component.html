@@ -1,0 +1,65 @@
+<main-layout class="blur_sm">
+  <nz-spin [nzSpinning]="loading" nzSize="large">
+    <div
+      class="shadow-lg p-3 !pr-0 !pb-0 sm:p-5 rounded-lg mx-3 sm:mx-auto mt-[10dvh] max-h-[80dvh] overflow-hidden flex flex-col gap-4 sm:gap-5 max-w-xl dark:text-white"
+    >
+      <h2 class="text-xl md:text-2xl xl:text-3xl text-center dark:text-white">
+        Todos
+      </h2>
+
+      <div class="flex items-center gap-3 sm:gap-5 pr-3 sm:pr-5">
+        <nz-input-group nzPrefixIcon="file-done" class="nz_input_group z-0">
+          <input
+            nz-input
+            placeholder="Add Todo..."
+            class="nz_input capitalize !pl-1 !text-white"
+            [value]="currentTodo.name"
+            #newTodo
+            (keyup)="getInputValue($event, newTodo.value)"
+          />
+        </nz-input-group>
+        <app-ping-icon
+          type="plus-circle"
+          (click)="addTodo()"
+          [animating]="currentTodo.name.length > 0"
+          *ngIf="!currentTodo.id"
+        ></app-ping-icon>
+        <div class="flex items-center gap-3 sm:gap-5" *ngIf="currentTodo.id">
+          <app-ping-icon
+            type="edit"
+            (click)="editTodoName()"
+            [animating]="currentTodo.name.length > 0"
+          ></app-ping-icon>
+          <app-ping-icon
+            type="close-circle"
+            (click)="currentTodo = { name: '' }"
+            color="red"
+          ></app-ping-icon>
+        </div>
+      </div>
+
+      <div
+        class="flex flex-col gap-3 sm:gap-5 max-h-[80dvh] pb-3 pr-3 sm:pr-5 overflow-y-auto"
+      >
+        <div *ngIf="Loading" class="mx-auto py-2">
+          <nz-spin nzSimple nzSize="large"></nz-spin>
+        </div>
+        <p
+          *ngIf="!Loading && !todos.length"
+          class="text-base md:text-lg text-center"
+        >
+          No todos
+        </p>
+        <app-todo-item
+          *ngFor="let todo of todos"
+          [todo]="todo"
+          [newTodo]="newTodo"
+          (readyToEditEvent)="readyToEdit($event)"
+          (deleteTodoEvent)="deleteTodo($event)"
+          (editTodoEvent)="editTodoName()"
+          (changeTodoCheckedEvent)="changeTodoChecked($event)"
+        ></app-todo-item>
+      </div>
+    </div>
+  </nz-spin>
+</main-layout>

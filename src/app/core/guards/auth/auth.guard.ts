@@ -1,13 +1,18 @@
-import {  CanActivateFn } from '@angular/router';
+import { CanActivateFn, Router } from '@angular/router';
 import { AuthService } from '../../../shared/services/auth/auth.service';
 import { inject } from '@angular/core';
+import { UserInfo } from '../../../shared/types/userInfo';
 
 export const authGuard: CanActivateFn = (route, state) => {
-  let userInfo!:{name:string,email:string,img:string}
-  inject(AuthService).userInfo$.subscribe(val=>userInfo=val)
-  if(userInfo.email){
-    return false
-  }else{
-    return true
+  let userInfo!: UserInfo;
+  let loading: boolean = true;
+  inject(AuthService).userInfo$.subscribe((val) => (userInfo = val));
+  inject(AuthService).loading$.subscribe((val) => (loading = val));
+
+  if (!loading && userInfo?.email === '') {
+    inject(Router).navigate(['']);
+    return false;
+  } else {
+    return true;
   }
 };

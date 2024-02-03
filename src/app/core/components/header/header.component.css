@@ -52,11 +52,10 @@
   top: 50%;
   transform: translateY(-50%);
   background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
-  ;
   transition: .5s;
 }
 
-.checkbox-wrapper-54 input:checked+.slider {
+.checkbox-wrapper-54 input:checked+.slider,.slider::before {
   background-color: #334155;
 }
 
