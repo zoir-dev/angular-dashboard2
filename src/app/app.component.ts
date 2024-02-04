@@ -48,11 +48,6 @@ export class AppComponent implements OnDestroy, OnInit {
     private auth: Auth,
     private router: Router
   ) {
-    if (isPlatformBrowser(platformId)) {
-      this.theme.darkMode$.next(
-        JSON.parse(localStorage.getItem('theme') || 'false')
-      );
-    }
     this.router.events.subscribe((routerEvent: Event) => {
       if (routerEvent instanceof NavigationStart) {
         this.showLoadingIndicator = true;
@@ -79,7 +74,9 @@ export class AppComponent implements OnDestroy, OnInit {
       this.authService.loading$.next(false);
     });
     if (isPlatformBrowser(this.platformId)) {
-      this.theme.changeMode(JSON.parse(localStorage.getItem('theme') || ''));
+      this.theme.changeMode(
+        JSON.parse(localStorage.getItem('theme') || 'true')
+      );
     }
   }
 
