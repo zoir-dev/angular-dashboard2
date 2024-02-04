@@ -13,5 +13,5 @@ export class PingIconComponent {
   @Input() type!: string;
   @Input() theme: 'outline' | 'twotone' = 'outline';
   @Input() color: string = 'bg-primary';
-  @Input() animating!: boolean;
+  @Input() animating: boolean = true;
 }

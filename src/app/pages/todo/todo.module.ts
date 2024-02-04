@@ -7,11 +7,12 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
-import { MainLayout } from '../../layouts/main/main.component';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
+import { NzEmptyModule } from 'ng-zorro-antd/empty';
 
 import { environment } from '../../../environments/environment';
 import { PingIconComponent } from './components/ping-icon/ping-icon.component';
+import { MainLayout } from '../../layouts/main/main.component';
 
 @NgModule({
   declarations: [],
@@ -28,6 +29,7 @@ import { PingIconComponent } from './components/ping-icon/ping-icon.component';
     NzCheckboxModule,
     NzSpinModule,
     PingIconComponent,
+    NzEmptyModule,
   ],
   exports: [
     MainLayout,
@@ -40,6 +42,7 @@ import { PingIconComponent } from './components/ping-icon/ping-icon.component';
     NzCheckboxModule,
     NzSpinModule,
     PingIconComponent,
+    NzEmptyModule,
   ],
 })
 export class TodoModule {}

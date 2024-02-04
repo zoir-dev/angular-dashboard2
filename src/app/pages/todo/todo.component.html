@@ -32,8 +32,8 @@
           ></app-ping-icon>
           <app-ping-icon
             type="close-circle"
-            (click)="currentTodo = { name: '' }"
             color="red"
+            (click)="currentTodo = { name: '' }"
           ></app-ping-icon>
         </div>
       </div>
@@ -44,12 +44,13 @@
         <div *ngIf="Loading" class="mx-auto py-2">
           <nz-spin nzSimple nzSize="large"></nz-spin>
         </div>
-        <p
+        <nz-empty
+          nzNotFoundImage="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+          nzNotFoundContent="No todos"
+          class="mx-auto text-base"
           *ngIf="!Loading && !todos.length"
-          class="text-base md:text-lg text-center"
-        >
-          No todos
-        </p>
+        ></nz-empty>
+
         <app-todo-item
           *ngFor="let todo of todos"
           [todo]="todo"

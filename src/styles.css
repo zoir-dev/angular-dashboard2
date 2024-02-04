@@ -4,6 +4,7 @@
 @tailwind utilities;
 
 
+
 * {
   @apply box-border p-0 m-0 !duration-500 transition-colors
 }

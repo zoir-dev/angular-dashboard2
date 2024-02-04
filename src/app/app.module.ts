@@ -9,7 +9,9 @@ import { getAuth } from 'firebase/auth';
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,provideFirebaseApp(()=>initializeApp(environment.firebaseConfig)),provideAuth(()=>getAuth())
-  ]
+    CommonModule,
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideAuth(() => getAuth()),
+  ],
 })
-export class AppModule { }
+export class AppModule {}

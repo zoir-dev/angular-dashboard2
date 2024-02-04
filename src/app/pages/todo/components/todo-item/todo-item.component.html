@@ -3,7 +3,7 @@
     nz-checkbox
     [nzChecked]="todo.isDone"
     (nzCheckedChange)="changeTodoChecked()"
-    class="md:text-lg dark:text-white capitalize flex gap-3 sm:gap-5 {{
+    class="text-base md:text-lg dark:text-white capitalize flex gap-2 sm:gap-3 {{
       todo.isDone && 'line-through opacity-50'
     }}"
     >{{ todo.name }}</label
@@ -13,14 +13,14 @@
       nz-icon
       nzType="edit"
       [nzTheme]="todo.isDone ? 'fill' : 'outline'"
-      class="text-lg md:text-xl cursor-pointer text-primary"
+      class="text-xl cursor-pointer text-primary"
       (click)="readyToEdit()"
     ></span>
     <span
       nz-icon
       nzType="delete"
       [nzTheme]="todo.isDone ? 'fill' : 'outline'"
-      class="text-lg md:text-xl cursor-pointer text-red-500"
+      class="text-xl cursor-pointer text-red-500"
       (click)="deleteTodo()"
     ></span>
   </div>

@@ -1,7 +1,6 @@
 <nz-spin [nzSpinning]="showLoadingIndicator" nzSize="large">
+  <ngx-loading-bar
+    color="linear-gradient(to right, #ef0810, #7903fe)"
+  ></ngx-loading-bar>
   <router-outlet></router-outlet>
 </nz-spin>
-<!-- <div
-  *ngIf="showLoadingIndicator"
-  class="w-full h-screen flex justify-center items-center dark:bg-slate-700 dark:text-white"
-></div> -->
