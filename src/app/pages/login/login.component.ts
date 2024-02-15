@@ -5,9 +5,7 @@ import { AuthLayout } from '../../layouts/auth/auth.component';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [AuthComponent,AuthLayout],
+  imports: [AuthComponent, AuthLayout],
   templateUrl: './login.component.html',
 })
-export class LoginComponent {
-
-}
+export class LoginComponent {}

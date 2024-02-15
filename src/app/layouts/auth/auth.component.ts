@@ -15,7 +15,10 @@ export class AuthLayout implements OnDestroy {
   userInfo!: UserInfo;
   unsubscribe$ = new Subject();
 
-  constructor(private router: Router, private authService: AuthService) {
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+  ) {
     this.authService.userInfo$
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((val) => (this.userInfo = val));

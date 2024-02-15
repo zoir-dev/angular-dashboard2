@@ -13,14 +13,14 @@
       nz-icon
       nzType="edit"
       [nzTheme]="todo.isDone ? 'fill' : 'outline'"
-      class="text-xl cursor-pointer text-primary"
+      class="cursor-pointer text-lg text-primary sm:text-xl"
       (click)="readyToEdit()"
     ></span>
     <span
       nz-icon
       nzType="delete"
       [nzTheme]="todo.isDone ? 'fill' : 'outline'"
-      class="text-xl cursor-pointer text-red-500"
+      class="cursor-pointer text-lg text-red-500 sm:text-xl"
       (click)="deleteTodo()"
     ></span>
   </div>

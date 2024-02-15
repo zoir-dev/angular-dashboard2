@@ -1,17 +1,17 @@
-<div class="w-full h-[90dvh] flex justify-center items-center blur_sm">
+<div class="blur_sm flex h-[90dvh] w-full items-center justify-center">
   <nz-spin
     [nzSpinning]="loading"
     nzSize="large"
-    class="sm_blur max-w-[350px] w-full mx-[16px]"
+    class="sm_blur mx-[16px] w-full max-w-[350px]"
   >
     <form
       nz-form
       [nzLayout]="'inline'"
       (ngSubmit)="submitForm()"
-      class="w-full flex justify-center flex-col gap-5 rounded-lg shadow-lg p-5"
+      class="flex w-full flex-col justify-center gap-5 rounded-lg p-5 shadow-lg"
       [formGroup]="validateForm"
     >
-      <h2 class="text-3xl text-center dark:text-gray-200">{{ type }}</h2>
+      <h2 class="text-center text-3xl dark:text-gray-200">{{ type }}</h2>
       <nz-form-item *ngIf="sign">
         <nz-form-control [nzErrorTip]="getError('userName')">
           <nz-input-group nzPrefixIcon="user" class="nz_input_group z-0">
@@ -54,7 +54,7 @@
           <button
             nz-button
             nzType="primary"
-            class="rounded-md bg-primary flex items-center justify-center gap-1"
+            class="flex items-center justify-center gap-1 rounded-md bg-primary"
             nzBlock="full"
             type="submit"
             [nzLoading]="loading"
@@ -64,13 +64,13 @@
         </nz-form-control>
         <nz-divider
           nzText="Or"
-          class="dark:text-gray-300 !border-gray-400"
+          class="!border-gray-400 dark:text-gray-300"
         ></nz-divider>
         <div class="relative">
           <button
             nz-button
             nzType="default"
-            class="rounded-md !bg-transparent dark:text-gray-200 border-primary text-black pr-10 hover:!text-primary"
+            class="rounded-md border-primary !bg-transparent pr-10 text-black hover:!text-primary dark:text-gray-200"
             nzBlock="full"
             type="button"
             [disabled]="loading"

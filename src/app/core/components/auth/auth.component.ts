@@ -66,7 +66,7 @@ export class AuthComponent {
     private fb: NonNullableFormBuilder,
     private auth: Auth,
     private router: Router,
-    private msg: NzMessageService
+    private msg: NzMessageService,
   ) {}
 
   async submitForm() {
@@ -82,7 +82,7 @@ export class AuthComponent {
           await createUserWithEmailAndPassword(
             this.auth,
             this.validateForm.value.email || '',
-            this.validateForm.value.password || ''
+            this.validateForm.value.password || '',
           ).then((d) => {
             updateProfile(d.user, {
               displayName: capitalizeWord(this.validateForm.value.userName),
@@ -101,7 +101,7 @@ export class AuthComponent {
           await signInWithEmailAndPassword(
             this.auth,
             this.validateForm.value.email || '',
-            this.validateForm.value.password || ''
+            this.validateForm.value.password || '',
           );
           this.msg.success('Successfully authed');
           this.router.navigate(['']);
@@ -140,11 +140,11 @@ export class AuthComponent {
       return this.validateForm.controls[name].hasError('required')
         ? `${name.slice(0, 1).toUpperCase() + name.slice(1)} is required`
         : this.validateForm.controls[name].hasError('email')
-        ? `Should be email`
-        : `${capitalizeWord(name)}'s minimal length is ${
-            this.validateForm.controls[name].errors?.['minlength']
-              .requiredLength
-          }`;
+          ? `Should be email`
+          : `${capitalizeWord(name)}'s minimal length is ${
+              this.validateForm.controls[name].errors?.['minlength']
+                .requiredLength
+            }`;
     }
     return '';
   }

@@ -1,0 +1,46 @@
+<main-layout>
+  <div
+    class="mx-auto w-full overflow-x-auto px-4 pt-10 sm:px-5 md:px-6 xl:px-[5%]"
+  >
+    <nz-table
+      #groupingTable
+      [nzData]="listOfData"
+      nzBordered
+      ngSkipHydration
+      [nzShowPagination]="false"
+    >
+      <thead>
+        <tr>
+          <th rowspan="4">Name</th>
+          <th colspan="4">Other</th>
+          <th colspan="2">Company</th>
+        </tr>
+        <tr>
+          <th rowspan="3">Phone</th>
+          <th colspan="3">Address</th>
+          <th rowspan="3">Company catchPhrase</th>
+          <th rowspan="3">Company bs</th>
+        </tr>
+        <tr>
+          <th rowspan="2">Street</th>
+          <th colspan="2">Block</th>
+        </tr>
+        <tr>
+          <th>Building</th>
+          <th>Zipcode</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of groupingTable.data">
+          <td nzLeft>{{ data.name }}</td>
+          <td>{{ data.phone }}</td>
+          <td>{{ data.address.street }}</td>
+          <td>{{ data.address.suite }}</td>
+          <td>{{ data.address.zipcode }}</td>
+          <td>{{ data.company.bs }}</td>
+          <td>{{ data.company.name }}</td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</main-layout>

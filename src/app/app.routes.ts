@@ -24,4 +24,9 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/todo/todo.component').then((t) => t.TodoComponent),
   },
+  {
+    path: 'table',
+    loadComponent: () =>
+      import('./pages/table/table.component').then((t) => t.TableComponent),
+  },
 ];

@@ -1,0 +1,64 @@
+<div
+  class="h-[100dvh] transition-all duration-500 px-3 dark:bg-slate-800 shadow-header dark:shadow-slate-800 py-2 sm:py-3  {{
+    sidebar.drawer ? '!w-60' : '!w-16'
+  }}  flex-col relative flex w-full sm:w-auto"
+>
+  <span
+    nz-icon
+    nzType="right-circle"
+    nzTheme="outline"
+    class="absolute right-0 hidden lg:flex top-5 translate-x-1/2 cursor-pointer text-xl text-primary duration-500 transition-all {{
+      sidebar.drawer && 'rotate-180'
+    }}"
+    (click)="sidebar.drawer = !sidebar.drawer"
+  ></span>
+  <div
+    class="w-full sm:w-[30px] overflow-hidden cursor-pointer duration-500 transition-all sm:!mx-auto  {{
+      sidebar.drawer && 'sm:!w-28  md:!w-32 duration-500 transition-all '
+    }} flex justify-between items-center sm:inline-block"
+  >
+    <img
+      src="../../../assets/logo.svg"
+      class="w-28 min-w-28 md:w-32 md:min-w-32"
+      alt=""
+      [routerLink]="['']"
+      (click)="sidebar.drawer = false"
+    />
+    <span
+      nz-icon
+      nzType="close-circle"
+      nzTheme="outline"
+      class="-mt-[2px] flex aspect-square cursor-pointer p-1 text-xl text-gray-500 dark:text-primary sm:hidden sm:text-2xl"
+      (click)="sidebar.drawer = false"
+    ></span>
+  </div>
+  <div
+    class="mx-auto flex w-full flex-col items-start gap-2 pt-7 transition-all duration-500"
+  >
+    <div
+      *ngFor="let l of links; let i = index"
+      [routerLink]="l.path"
+      routerLinkActive="bg-slate-200 dark:bg-slate-700 text-primary"
+      class="group flex w-full cursor-pointer items-center gap-3 overflow-hidden rounded-xl px-3 py-2 hover:bg-slate-200 dark:text-white dark:hover:bg-slate-700 xl:gap-4"
+      (click)="sidebar.drawer = false"
+    >
+      <span nz-icon [nzType]="l.icon" class="text-lg duration-500"></span>
+      <p
+        style="transition-delay: {{ i * 80 }}ms;"
+        class="translate-x-0 {{
+          sidebar.drawer
+            ? 'w-full mr-auto opacity-100'
+            : '!translate-x-20 opacity-0 overflow-hidden '
+        }} sm:text-base duration-500 transition-all group-hover:!delay-0 pointer-events-none"
+      >
+        {{ l.name }}
+      </p>
+      <p
+        *ngIf="!sidebar.drawer"
+        class="!pointer-events-none absolute -right-20 z-50 overflow-hidden rounded-lg bg-slate-200 px-2 py-1 text-sm opacity-0 transition-all duration-500 group-hover:-right-14 group-hover:opacity-100 dark:bg-slate-800"
+      >
+        {{ l.name }}
+      </p>
+    </div>
+  </div>
+</div>

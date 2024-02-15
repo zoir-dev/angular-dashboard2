@@ -3,4 +3,17 @@
     color="linear-gradient(to right, #ef0810, #7903fe)"
   ></ngx-loading-bar>
   <router-outlet></router-outlet>
+  <nz-drawer
+    [nzClosable]="false"
+    [nzVisible]="drawer.drawer"
+    nzPlacement="left"
+    (nzOnClose)="close()"
+    [nzMaskClosable]="true"
+    class="flex md:!hidden"
+    *ngIf="windowWidth < 768"
+  >
+    <ng-container *nzDrawerContent>
+      <app-sidebar></app-sidebar>
+    </ng-container>
+  </nz-drawer>
 </nz-spin>

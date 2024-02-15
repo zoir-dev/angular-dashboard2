@@ -1,0 +1,11 @@
+::ng-deep .ant-drawer-content-wrapper {
+  @apply !w-[300px] !max-w-full;
+}
+::ng-deep .ant-drawer-body {
+  @apply p-0;
+}
+
+::ng-deep .ant-drawer-mask {
+  backdrop-filter: blur(4px);
+  background: transparent;
+}

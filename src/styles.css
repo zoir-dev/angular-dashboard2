@@ -3,62 +3,106 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 * {
-  @apply box-border p-0 m-0 !duration-500 transition-colors
+  @apply m-0 box-border p-0 transition-colors !duration-500;
 }
 
-form nz-form-item{
-    @apply !m-0
+.ant-table,
+td,
+thead tr th {
+  background-color: transparent !important;
+  @apply !transition-colors !duration-500 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-800;
 }
 
-form .ant-form-item-explain-error{
-  @apply !text-xs pt-1
+.ant-table tbody tr td {
+  @apply text-gray-500 transition-colors duration-500 dark:text-gray-300;
 }
 
-form nz-form-item svg{
-  @apply  pr-1 box-content
+.anticon svg {
+  display: block;
 }
 
-.nz_input_group{
-  @apply dark:!bg-slate-700 !m-0 text-primary  p-2 !rounded-md
-}
-.nz_input{
-  @apply !bg-transparent dark:text-white text-sm sm:text-[15px]
+form nz-form-item {
+  @apply !m-0;
 }
 
-button{
-  @apply active:scale-[97%] !transition-all
+form .ant-form-item-explain-error {
+  @apply pt-1 !text-xs;
 }
 
-.dark .ant-message-notice .ant-message-notice-content{
-  @apply !bg-slate-700
-}
-.ant-message-notice-content{
-  @apply dark:!bg-slate-700 dark:!text-white
-}
-.ant-message-custom-content{
-  @apply flex items-center
+form nz-form-item svg {
+  @apply box-content pr-1;
 }
 
-
-
-.ant-spin-nested-loading > div > .ant-spin{
-  @apply max-h-full
+.nz_input_group {
+  @apply !m-0 !rounded-md p-2  text-primary dark:!bg-slate-700;
+}
+.nz_input {
+  @apply !bg-transparent text-sm dark:text-white sm:text-[15px];
 }
 
-.ant-spin-container::after{
-  @apply bg-transparent backdrop-blur-md z-0
-}
-.blur_sm .ant-spin-container::after{
-  @apply backdrop-blur-sm
+button {
+  @apply !transition-all active:scale-[97%];
 }
 
-.ant-spin-blur, .ant-spin-blur::after{
-  @apply opacity-100
+.dark .ant-message-notice .ant-message-notice-content {
+  @apply !bg-slate-700;
+}
+.ant-message-notice-content {
+  @apply dark:!bg-slate-700 dark:!text-white;
+}
+.ant-message-custom-content {
+  @apply flex items-center;
 }
 
-form nz-form-item button svg{
-  @apply pr-0
+.ant-spin-nested-loading > div > .ant-spin {
+  @apply max-h-full;
+}
+
+.ant-spin-container::after {
+  @apply z-0 bg-transparent backdrop-blur-md;
+}
+.blur_sm .ant-spin-container::after {
+  @apply backdrop-blur-sm;
+}
+
+.ant-spin-blur,
+.ant-spin-blur::after {
+  @apply opacity-100;
+}
+
+form nz-form-item button svg {
+  @apply pr-0;
+}
+
+.ant-drawer-content-wrapper {
+  @apply !w-60 !max-w-full;
+}
+.ant-drawer-body {
+  @apply p-0;
+}
+
+.ant-drawer-mask {
+  backdrop-filter: blur(4px);
+  background: transparent;
+}
+
+.ant-dropdown-menu {
+  @apply p-0 dark:bg-slate-800;
+}
+.ant-dropdown-menu li {
+  @apply dark:text-white hover:dark:bg-slate-700;
+}
+.ant-dropdown-menu-item-danger {
+  @apply text-red-500 hover:!bg-red-500;
+}
+.ant-dropdown-menu-item-danger span {
+  @apply text-red-500;
+}
+.ant-dropdown-menu-item-danger:hover span {
+  @apply text-white;
+}
+
+.ant-dropdown-menu-item-selected {
+  @apply !text-primary dark:!bg-slate-700;
 }

@@ -1,4 +1,7 @@
-<div class="w-full min-h-[100dvh] dark:bg-slate-700 dark:text-white">
-  <app-header></app-header>
-  <ng-content></ng-content>
+<div class="flex h-[100dvh] w-full dark:bg-slate-700 dark:text-white">
+  <app-sidebar class="hidden sm:flex"></app-sidebar>
+  <div class="w-full overflow-y-auto">
+    <app-header></app-header>
+    <ng-content></ng-content>
+  </div>
 </div>

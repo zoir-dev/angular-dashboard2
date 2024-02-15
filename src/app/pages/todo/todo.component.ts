@@ -30,7 +30,7 @@ export class TodoComponent implements OnDestroy {
 
   constructor(
     private firestore: AngularFirestore,
-    private msg: NzMessageService
+    private msg: NzMessageService,
   ) {
     this.firestoreCollection = this.firestore.collection('todos');
     this.Loading = true;
@@ -61,7 +61,7 @@ export class TodoComponent implements OnDestroy {
     const todoName = this.currentTodo.name;
     if (
       !this.todos.find(
-        (t) => t.name.toLowerCase() === todoName.toLowerCase()
+        (t) => t.name.toLowerCase() === todoName.toLowerCase(),
       ) &&
       todoName.length
     ) {
@@ -80,7 +80,7 @@ export class TodoComponent implements OnDestroy {
       }
     } else {
       this.msg.warning(
-        todoName ? 'You have this todo!' : 'Todo name cannot be empty!'
+        todoName ? 'You have this todo!' : 'Todo name cannot be empty!',
       );
     }
   }
@@ -116,7 +116,7 @@ export class TodoComponent implements OnDestroy {
     try {
       if (
         !this.todos.find(
-          (t) => t.name.toLowerCase() === todoName.toLowerCase()
+          (t) => t.name.toLowerCase() === todoName.toLowerCase(),
         ) &&
         todoName
       ) {
@@ -128,7 +128,7 @@ export class TodoComponent implements OnDestroy {
         this.msg.success(`${todoName} updated successfully`);
       } else {
         this.msg.warning(
-          todoName ? 'You have this todo!' : 'Todo name cannot be empty!'
+          todoName ? 'You have this todo!' : 'Todo name cannot be empty!',
         );
       }
     } catch (error: any) {

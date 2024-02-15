@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy } from '@angular/core';
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { RouterLink, RouterModule } from '@angular/router';
 
 import { Subject, takeUntil } from 'rxjs';
@@ -8,6 +8,8 @@ import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 import { Auth } from '@angular/fire/auth';
 
@@ -19,12 +21,15 @@ import {
   capitalizeWord,
 } from '../../../shared/functions/capitalize';
 import { CustomeImageComponent } from '../../../shared/themes/custome-image/custome-image.component';
+import { DrawerService } from '../../../shared/services/drawer/drawer.service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
+  host: { ngSkipHydration: 'true' },
   imports: [
     NgIf,
+    NgFor,
     NzAvatarModule,
     NzButtonModule,
     RouterModule,
@@ -32,6 +37,8 @@ import { CustomeImageComponent } from '../../../shared/themes/custome-image/cust
     NzToolTipModule,
     CustomeImageComponent,
     RouterLink,
+    NzIconModule,
+    NzDropDownModule,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
@@ -49,7 +56,8 @@ export class HeaderComponent implements OnDestroy {
     private theme: ThemeService,
     private authService: AuthService,
     private auth: Auth,
-    private msg: NzMessageService
+    private msg: NzMessageService,
+    public drawer: DrawerService,
   ) {
     this.theme.darkMode$
       .pipe(takeUntil(this.unsubscribe$))

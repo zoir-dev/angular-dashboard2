@@ -8,10 +8,9 @@ describe('PingIconComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PingIconComponent]
-    })
-    .compileComponents();
-    
+      imports: [PingIconComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(PingIconComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
